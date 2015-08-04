@@ -8,13 +8,13 @@ import (
 )
 
 
-func AutoLoad() {
+func AutoLoad() error{
 
     file, err := os.Open(".env")
 
     if err != nil {
 		err = errors.New("error when open .env")
-        return
+        return err
 	}
     
     defer file.Close()
@@ -27,9 +27,12 @@ func AutoLoad() {
             if os.Getenv(key) == "" {
                 os.Setenv(key, value)
             }
+        }else{
+                return err
         }
     }
     
+    return err
 }
 
 
