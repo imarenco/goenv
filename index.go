@@ -23,7 +23,7 @@ func AutoLoad() error{
     
     for scanner.Scan() {
         key, value, err := parseLine(scanner.Text())
-        if(err == nil){
+        if err == nil{
             if os.Getenv(key) == "" {
                 os.Setenv(key, value)
             }
