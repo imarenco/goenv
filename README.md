@@ -1,1 +1,3 @@
-I will update this README soon
+
+  err := goenv.AutoLoad()
+  os.Getenv("variable")
